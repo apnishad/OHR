@@ -1,0 +1,36 @@
+<div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">New Room Types</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modalRef.close()"></button>
+</div>
+<form class="forms-sample"  [formGroup]="hotelInfoForm" (ngSubmit)="OnSubmit(hotelInfoForm)">
+  <div class="modal-body">
+        <div class="form-group row" *ngIf="status != 0">
+            <label for="txtid" class="col-sm-3 col-form-label">ID : </label>
+            <div class="col-sm-9">
+              <input type="text" readonly  [class.is-invalid]="hotelInfoForm.get('id')['invalid'] && hotelInfoForm.get('id')['touched']" formControlName="id" class="form-control  form-control-lg" id="txtid" placeholder="ID">
+              <div *ngIf="(hotelInfoForm.get('id')['invalid'] && hotelInfoForm.get('id')['touched']) || hotelInfoForm.get('id')['dirty']">
+                <small class="text-danger" *ngIf="hotelInfoForm.get('id').errors && hotelInfoForm.get('id').errors['required']">please enter room type id.</small>
+              </div>
+            </div>
+        </div>
+        <div class="form-group row">
+          <label for="txtname" class="col-sm-3 col-form-label">Name : </label>
+          <div class="col-sm-9">
+            <input type="text" [readonly]="status==2" [class.is-invalid]="hotelInfoForm.get('name')['invalid'] && hotelInfoForm.get('name')['touched']" formControlName="name" class="form-control form-control-lg" id="txtname" placeholder="Name">
+            <div *ngIf="(hotelInfoForm.get('name')['invalid'] && hotelInfoForm.get('name')['touched']) || hotelInfoForm.get('name')['dirty']">
+                <small class="text-danger" *ngIf="hotelInfoForm.get('name').errors && hotelInfoForm.get('name').errors['required']">please enter room type name.</small>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="txtdescription" class="col-sm-3 col-form-label">Description : </label>
+          <div class="col-sm-9">
+            <textarea type="text" [readonly]="status==2" formControlName="description" class="form-control form-control-lg" id="txtdescription" rows="4" column="20" placeholder="Description"></textarea>
+          </div>
+        </div>
+  </div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="close()">Close</button>
+    <button type="submit" class="btn btn-primary" *ngIf="status != 2" [disabled]="!hotelInfoForm.valid">Save</button>
+</div>
+</form>

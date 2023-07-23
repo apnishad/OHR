@@ -1,0 +1,19 @@
+<h1>Hotels Summary</h1>
+<button class="btn btn-primary" (click)="OnSave()">New Hotel</button>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Id </th>
+        <th>Name </th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let hf of hfInfoServ">
+        <td>{{hf.hotelId}}</td>
+        <td> {{hf.hotelName}} </td>
+        <td><button class="btn btn-primary m-1" (click)="OnEdit(hf.hotelId)">Edit</button>
+        <a class="btn btn-primary m-1" (click)="OnView(hf.hotelId)">View</a>
+        <a class="btn btn-primary m-1" (click)="OnRemove(hf.hotelId)">Remove</a></td>
+      </tr>
+    </tbody>

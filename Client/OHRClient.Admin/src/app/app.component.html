@@ -1,0 +1,13 @@
+<div class="container-scroller">
+  <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row" app-header>
+
+  </nav>
+  <div class="{{isLoggedIn?'container-fluid page-body-wrapper':'container-fluid page-body-wrapper full-page-wrapper'}}">
+    <!-- partial:../../partials/_sidebar.html -->
+    <nav class="sidebar sidebar-offcanvas" id="sidebar" *ngIf="isLoggedIn" app-side-nav></nav>
+    <!-- partial -->
+    <div class="main-panel p-5">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

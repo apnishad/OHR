@@ -1,0 +1,28 @@
+<h1>Rooms Summary</h1>
+<button class="btn btn-primary" (click)="OnSave()">New Room</button>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Id </th>
+        <th>Room Number </th>
+        <th>Available</th>
+        <th>Maximum Guest</th>
+        <th>Room Type</th>
+        <th>Price </th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let rm of rooms; let i = index" [attr.data-index]="i">
+        <td>{{i+1}}</td>
+        <td> {{rm.number}} </td>
+        <td *ngIf="rm.available"> Yes</td>
+        <td *ngIf="!rm.available"> No</td>
+        <td>{{rm.maximumGuests}}</td>
+        <td> {{rm.roomType.name}} </td>
+        <td> {{rm.price}} </td>
+        <td><button class="btn btn-primary m-1" (click)="OnEdit(rm.id)">Edit</button>
+        <a class="btn btn-primary m-1" (click)="OnView(rm.id)">View</a>
+        <a class="btn btn-primary m-1" (click)="OnRemove(rm.id)">Remove</a></td>
+      </tr>
+    </tbody>

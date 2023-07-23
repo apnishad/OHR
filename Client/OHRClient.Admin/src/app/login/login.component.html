@@ -1,0 +1,45 @@
+<div class="row flex-grow">
+    <div class="col-lg-4 mx-auto">
+      <div class="auth-form-light text-left p-5">
+        <div class="brand-logo">
+          <img src="../../assets/images/logo-dark.svg">
+        </div>
+        <h4>Hello! let's get started</h4>
+        <h6 class="font-weight-light">Sign in to continue.</h6>
+        <form class="pt-3" [formGroup]="loginform" (ngSubmit)="OnSubmit(loginform)">
+          <div class="form-group">
+            <ul>
+              <li *ngFor="let err of errors" class="text-danger">
+                {{err}}
+              </li>
+            </ul>
+          </div>
+          <div class="form-group">
+            <input type="email" [class.is-invalid]="loginform.get('emailaddr')['invalid'] && loginform.get('emailaddr')['touched']" formControlName="emailaddr" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="E-Mail">
+            <div *ngIf="(loginform.get('emailaddr')['invalid'] && loginform.get('emailaddr')['touched']) || loginform.get('emailaddr')['dirty']">
+              <small class="text-danger" *ngIf="loginform.get('emailaddr').errors && loginform.get('emailaddr').errors['required']">please enter email address.</small>
+              <small class="text-danger" *ngIf="loginform.get('emailaddr').errors && loginform.get('emailaddr').errors['email']">please enter valid email address to login.</small>
+             </div>
+          </div>
+          <div class="form-group">
+            <input type="password" [class.is-invalid]="loginform.get('pwd')['invalid'] && loginform.get('pwd')['touched']"  formControlName="pwd"  class="form-control form-control-lg"  id="exampleInputPassword1" placeholder="Password">
+            <div *ngIf="(loginform.get('pwd')['invalid'] && loginform.get('pwd')['touched']) || loginform.get('pwd')['dirty']">
+              <small class="text-danger" *ngIf="loginform.get('pwd').errors && loginform.get('pwd').errors['required']">please enter password.</small>
+             </div>
+          </div>
+          <div class="mt-3">
+            <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit">SIGN IN</button>
+          </div>
+          <div class="my-2 d-flex justify-content-between align-items-center">
+            <div class="form-check">
+              <label class="form-check-label text-muted">
+                <input type="checkbox" class="form-check-input"> Keep me signed in </label>
+            </div>
+            <a href="#" class="auth-link text-black">Forgot password?</a>
+          </div>
+          <div class="text-center mt-4 font-weight-light"> Don't have an account? <a routerLink="/register" class="text-primary">Create</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

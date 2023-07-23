@@ -8,5 +8,6 @@ namespace UserIdentity.API.Models
         public string LastName{get;set;}
         public long? FacebookId{get;set;}
         public string PictureUrl{get;set;}
+        public string UserType{get;set;}
     }
 }

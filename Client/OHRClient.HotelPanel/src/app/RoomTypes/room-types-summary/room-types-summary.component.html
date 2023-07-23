@@ -1,0 +1,21 @@
+<h1>Room Types Summary</h1>
+<button class="btn btn-primary" (click)="OnClick()">New Room Type</button>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Id </th>
+        <th>Name </th>
+        <th>Base Price </th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let rm of roomTypes">
+        <td>{{rm.id}}</td>
+        <td> {{rm.name}} </td>
+        <td> {{rm.basePrice}} </td>
+        <td><button class="btn btn-primary m-1" (click)="OnEdit(rm.id)">Edit</button>
+        <a class="btn btn-primary m-1" (click)="OnView(rm.id)">View</a>
+        <a class="btn btn-primary m-1" (click)="OnRemove(rm.id)">Remove</a></td>
+      </tr>
+    </tbody>

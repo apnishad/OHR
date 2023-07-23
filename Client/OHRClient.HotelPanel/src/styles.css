@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+.center {
+    text-align: center;
+  }
+  
+  .toast-success {
+    padding-left: 80px;
+    text-align: center;
+    background-position: 35% !important;
+    border: 1px transparent black;
+    border-radius: 3px;
+    padding: 15px 100px;
+    background-color: yellowgreen;
+    color: darkred;
+    position: fixed;
+    top: 90%;
+    left:35%;
+    z-index: 999;
+    overflow: visible !important;
+  }
+
+  .modal-dialog {
+    width: 950px;
+  }

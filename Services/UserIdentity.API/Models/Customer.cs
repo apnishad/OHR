@@ -10,4 +10,4 @@ namespace UserIdentity.API.Models
         public string Location{get;set;}
         public string Gender{get;set;}
     }
-}
+}  

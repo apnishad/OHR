@@ -1,0 +1,23 @@
+<h1>Hotel Locations Summary</h1>
+<button class="btn btn-primary" (click)="OnClick()">New Hotel Location</button>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Id </th>
+        <th>Address </th>
+        <th>Area </th>
+        <th>City </th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let hLoc of hotelLocationsvm">
+        <td>{{hLoc.id}}</td>
+        <td> {{hLoc.address}} </td>
+        <td> {{hLoc.location}} </td>
+        <td> {{hLoc.city}} </td>
+        <td><button class="btn btn-primary m-1" (click)="OnEdit(hLoc.id)">Edit</button>
+        <a class="btn btn-primary m-1" (click)="OnView(hLoc.id)">View</a>
+        <a class="btn btn-primary m-1" (click)="OnRemove(hLoc.id)">Remove</a></td>
+      </tr>
+    </tbody>

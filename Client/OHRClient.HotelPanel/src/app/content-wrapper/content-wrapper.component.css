@@ -1,0 +1,12 @@
+img{
+    height:200px;
+}
+button{
+    width: 95%;
+}
+div.card > div.card-body{
+    padding:0;
+}
+div.card-body{
+    text-align: center;
+}

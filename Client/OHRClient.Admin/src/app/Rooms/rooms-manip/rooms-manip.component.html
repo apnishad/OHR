@@ -1,0 +1,63 @@
+<div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">New Room Types</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modalRef.close()"></button>
+</div>
+<form class="forms-sample"  [formGroup]="roomForm" (ngSubmit)="OnSubmit(roomForm)">
+  <div class="modal-body">
+        <div class="form-group row" *ngIf="status != 0">
+            <label for="txtid" class="col-sm-3 col-form-label">ID : </label>
+            <div class="col-sm-9">
+              <input type="text" readonly  [class.is-invalid]="roomForm.get('id')['invalid'] && roomForm.get('id')['touched']" formControlName="id" class="form-control  form-control-lg" id="txtid" placeholder="ID">
+              <div *ngIf="(roomForm.get('id')['invalid'] && roomForm.get('id')['touched']) || roomForm.get('id')['dirty']">
+                <small class="text-danger" *ngIf="roomForm.get('id').errors && roomForm.get('id').errors['required']">please enter room id.</small>
+              </div>
+            </div>
+        </div>
+        <div class="form-group row">
+          <label for="txtnumber" class="col-sm-3 col-form-label">Room Number : </label>
+          <div class="col-sm-9">
+            <input type="text" [readonly]="status==2" [class.is-invalid]="roomForm.get('number')['invalid'] && roomForm.get('number')['touched']" formControlName="number" class="form-control form-control-lg" id="txtnumber" placeholder="Room Number">
+            <div *ngIf="(roomForm.get('number')['invalid'] && roomForm.get('number')['touched']) || roomForm.get('number')['dirty']">
+                <small class="text-danger" *ngIf="roomForm.get('number').errors && roomForm.get('number').errors['required']">please enter room type name.</small>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="txtguest" class="col-sm-3 col-form-label">Maximum Guests : </label>
+          <div class="col-sm-9">
+            <input type="text" [readonly]="status==2" [class.is-invalid]="roomForm.get('maximumGuests')['invalid'] && roomForm.get('maximumGuests')['touched']" formControlName="maximumGuests" class="form-control form-control-lg" id="txtguest" placeholder="Maximum Guests Allowed">
+            <div *ngIf="(roomForm.get('maximumGuests')['invalid'] && roomForm.get('maximumGuests')['touched']) || roomForm.get('maximumGuests')['dirty']">
+                <small class="text-danger" *ngIf="roomForm.get('maximumGuests').errors && roomForm.get('maximumGuests').errors['required']">please enter room type name.</small>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="txtprice"  class="col-sm-3 col-form-label">Price : </label>
+          <div class="col-sm-9">
+            <input type="text" [readonly]="status==2" [class.is-invalid]="roomForm.get('price')['invalid'] && roomForm.get('price')['touched']" formControlName="price" class="form-control form-control-lg" id="txtprice" placeholder="Price">
+            <div *ngIf="(roomForm.get('price')['invalid'] && roomForm.get('price')['touched']) || roomForm.get('price')['dirty']">
+                <small class="text-danger" *ngIf="roomForm.get('price').errors && roomForm.get('price').errors['required']">please enter room price.</small>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+            <label for="txtroomType"  class="col-sm-3 col-form-label">Room Type : </label>
+            <div class="col-sm-9">
+              <input type="text" [readonly]="status==2" [class.is-invalid]="roomForm.get('roomTypeId')['invalid'] && roomForm.get('roomTypeId')['touched']" formControlName="roomTypeId" class="form-control form-control-lg" id="txtroomType">
+              <div *ngIf="(roomForm.get('roomTypeId')['invalid'] && roomForm.get('roomTypeId')['touched']) || roomForm.get('roomTypeId')['dirty']">
+                  <small class="text-danger" *ngIf="roomForm.get('roomTypeId').errors && roomForm.get('roomTypeId').errors['required']">please select room type.</small>
+              </div>
+            </div>
+          </div>
+        <div class="form-group row">
+          <label for="txtdescription" class="col-sm-3 col-form-label">Description : </label>
+          <div class="col-sm-9">
+            <textarea type="text" [readonly]="status==2" formControlName="description" class="form-control form-control-lg" id="txtdescription" rows="4" column="20" placeholder="Description"></textarea>
+          </div>
+        </div>
+  </div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="close()">Close</button>
+    <button type="submit" class="btn btn-primary" *ngIf="status != 2" [disabled]="!roomForm.valid">Save</button>
+</div>
+</form>

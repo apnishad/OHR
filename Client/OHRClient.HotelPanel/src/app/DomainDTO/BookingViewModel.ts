@@ -1,0 +1,20 @@
+export class BookingViewModel
+{
+    id:string;
+    checkIn:Date;
+    checkOut:Date;
+    completed:boolean;
+    customerAddress:string;
+    customerCity:string;
+    customerEmail:string;
+    customerName:string;
+    customerPhone:string; 
+    dateCreated:Date;
+    noOfGuests:number;
+    otherRequests:string;
+    paid:boolean;
+    totalFee:number;
+    hotelName:string;
+    roomNo:string;
+    customerId:string;
+}

@@ -1,0 +1,17 @@
+<div class="container-scroller">
+  <nav class="navbar default-layout-navbar bg-dark text-light col-lg-12 col-12 p-0 fixed-top d-flex flex-row border border-dark" app-header>
+
+  </nav>
+  <div class="{{isLoggedIn?'container-fluid page-body-wrapper':'container-fluid page-body-wrapper full-page-wrapper'}}">
+    <!-- partial:../../partials/_sidebar.html -->
+    <nav class="sidebar sidebar-offcanvas bg-dark " id="sidebar" *ngIf="isLoggedIn" app-side-nav></nav>
+    <!-- partial -->
+    <div class="main-panel p-5">
+      <!--<footer class="footer" app-footer></footer>-->
+      <router-outlet></router-outlet>
+    </div>
+    <!--<ng-template #loginCmp>
+      <div class="content-wrapper d-flex align-items-center auth"  app-login></div>
+    </ng-template>-->
+  </div>
+</div>

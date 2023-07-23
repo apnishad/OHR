@@ -1,0 +1,55 @@
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="dashboard">
+          <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+          <span class="menu-title">Dashboard</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="roomtypes">
+          <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+          <span class="menu-title">Room Types</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="rooms">
+          <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+          <span class="menu-title">Rooms</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="bookings">
+          <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+          <span class="menu-title">Bookings</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="facilities">
+          <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+          <span class="menu-title">Facilities</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="hotelLocations">
+          <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+          <span class="menu-title">Locations</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="">
+          <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+          <span class="menu-title">Users</span>
+        </a>
+      </li>
+      <li class="nav-item sidebar-user-actions">
+        <div class="user-details" (click)="OnLogOut()">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="sidebar-user-menu">
+                <a href="#" class="nav-link"><i class="mdi mdi-logout menu-icon"></i>
+                  <span class="menu-title">Log Out</span></a>
+              </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  

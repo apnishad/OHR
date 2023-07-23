@@ -1,0 +1,23 @@
+<h5>Enter Hotel Information</h5>
+        <div class="form-group row">
+          <label for="txthotelname" class="col-sm-3 col-form-label">Hotel Name : </label>
+          <span>{{hotelvm.hotelName}}</span>
+        </div>
+        <div class="form-group row">
+          <label for="txthotelAddress" class="col-sm-3 col-form-label">Address : </label>
+          <span>{{hotelvm.hotelAddress[0].address}}</span>
+        </div>
+        <div class="form-group row">
+          <label for="txtloc"  class="col-sm-3 col-form-label">Location : </label>
+          <span>{{hotelvm.hotelAddress[0].location}}</span>
+        </div>
+        <div class="form-group row">
+            <label for="txtcity"  class="col-sm-3 col-form-label">City : </label>
+            <span>{{hotelvm.hotelAddress[0].city}}</span>
+          </div>
+        <div class="form-group row">
+          <label for="txtdescription" class="col-sm-3 col-form-label">Description : </label>
+          <span>{{hotelvm.description}}</span>
+        </div>
+    <button type="button" class="btn btn-primary" (click)="Edit()">Edit</button>
+

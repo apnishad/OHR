@@ -1,0 +1,21 @@
+<h1>Facilities Summary</h1>
+<button class="btn btn-primary" (click)="OnClick()">New Facility</button>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Id </th>
+        <th>Icon </th>
+        <th>Name </th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let fc of fctsvm">
+        <td>{{fc.id}}</td>
+        <td> {{fc.iCon}} </td>
+        <td> {{fc.name}} </td>
+        <td><button class="btn btn-primary m-1" (click)="OnEdit(fc.id)">Edit</button>
+        <a class="btn btn-primary m-1" (click)="OnView(fc.id)">View</a>
+        <a class="btn btn-primary m-1" (click)="OnRemove(fc.id)">Remove</a></td>
+      </tr>
+    </tbody>

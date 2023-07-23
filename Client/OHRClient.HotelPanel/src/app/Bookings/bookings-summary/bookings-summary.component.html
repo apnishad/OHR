@@ -1,0 +1,30 @@
+<h1>Bookings Summary</h1>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Id </th>
+        <th>CheckIn Date </th>
+        <th>CheckOut Date </th>
+        <th>Customer Name</th>
+        <th>City</th>
+        <th>Phone</th>
+        <th>Guests Count</th>
+        <th>Room No.</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let bk of bookingsvm">
+        <td>{{bk.id}}</td>
+        <td>{{bk.checkIn}}</td>
+        <td>{{bk.checkOut}}</td>
+        <td>{{bk.customerName}}</td>
+        <td>{{bk.customerCity}}</td>
+        <td>{{bk.customerPhone}}</td>
+        <td>{{bk.noOfGuests}}</td>
+        <td>{{bk.roomNo}}</td>
+        <td><button class="btn btn-primary m-1" (click)="OnEdit(bk.id)">Edit</button>
+        <a class="btn btn-primary m-1" (click)="OnView(bk.id)">View</a>
+        <a class="btn btn-primary m-1" (click)="OnRemove(bk.id)">Remove</a></td>
+      </tr>
+    </tbody>
