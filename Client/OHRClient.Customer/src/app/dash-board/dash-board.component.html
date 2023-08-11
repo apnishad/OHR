@@ -1,0 +1,73 @@
+<div class="hero-wrap" style="background-image: url('../../assets/images/bg_1.jpg');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text d-flex align-itemd-end justify-content-center">
+            <div class="col-md-9 text-center d-flex align-items-end justify-content-center">
+                <div class="text">
+                    <h1 class="mb-4 bread">Dashboard</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>    
+<section class="mt-4 pt-4">
+    <div class="container">
+      <div class="row d-flex ">
+        <div class="col-md-4 d-flex align-self-stretch justify-content-center p-0" *ngFor="let crd of cardData">
+            <div class="card m-2 border-0" >
+                <img [src]="crd.url" class="card-img-top rounded-circle" height="100" width="100" alt="...">
+                <div class="card-body">
+                  <a [routerLink]="crd.navUrl" class="btn">{{crd.title}}</a>
+                </div>
+              </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container-fluid">
+      <div class="row no-gutters justify-content-center pb-5">
+        <div class="col-md-7 text-center heading-section ftco-animate">
+          <h2><span>Instagram</span></h2>
+        </div>
+      </div>
+      <div class="row no-gutters">
+        <div class="col-sm-12 col-md ftco-animate">
+          <a href="images/insta-1.jpg" class="insta-img image-popup" style="background-image: url(../../assets/images/insta-1.jpg);">
+            <div class="icon d-flex justify-content-center">
+              <span class="icon-instagram align-self-center"></span>
+            </div>
+          </a>
+        </div>
+        <div class="col-sm-12 col-md ftco-animate">
+          <a href="images/insta-2.jpg" class="insta-img image-popup" style="background-image: url(../../assets/images/insta-2.jpg);">
+            <div class="icon d-flex justify-content-center">
+              <span class="icon-instagram align-self-center"></span>
+            </div>
+          </a>
+        </div>
+        <div class="col-sm-12 col-md ftco-animate">
+          <a href="images/insta-3.jpg" class="insta-img image-popup" style="background-image: url(../../assets/images/insta-3.jpg);">
+            <div class="icon d-flex justify-content-center">
+              <span class="icon-instagram align-self-center"></span>
+            </div>
+          </a>
+        </div>
+        <div class="col-sm-12 col-md ftco-animate">
+          <a href="images/insta-4.jpg" class="insta-img image-popup" style="background-image: url(../../assets/images/insta-4.jpg);">
+            <div class="icon d-flex justify-content-center">
+              <span class="icon-instagram align-self-center"></span>
+            </div>
+          </a>
+        </div>
+        <div class="col-sm-12 col-md ftco-animate">
+          <a href="images/insta-5.jpg" class="insta-img image-popup" style="background-image: url(../../assets/images/insta-5.jpg);">
+            <div class="icon d-flex justify-content-center">
+              <span class="icon-instagram align-self-center"></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>

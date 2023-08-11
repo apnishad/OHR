@@ -49,6 +49,7 @@ export class RegisterComponent implements OnInit {
       fname:['',Validators.required],
       lname:['',Validators.required],
       loc:['',Validators.required],
+      gender:['',Validators.required],
       acceptTerms:[false,Validators.requiredTrue]
     },
     {
@@ -71,9 +72,10 @@ export class RegisterComponent implements OnInit {
       firstName:this.registerform.controls['fname'].value,
       lastName:this.registerform.controls['lname'].value,
       location:this.registerform.controls['loc'].value,
+      gender:this.registerform.controls['gender'].value,
       userType:"HotelUser"
     }
-
+    console.log(regvm.gender);
     this.regSvc.Register(regvm).subscribe((data:any)=>{
       this.lblstatus = data.message;
     })

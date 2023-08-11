@@ -1,0 +1,35 @@
+<div class="modal-dialog model-lg modal-dialog-centered">
+    <form class="pt-3" [formGroup]="loginform" (ngSubmit)="OnSubmit(loginform)">
+        <div class="modal-content opacity-75 bg-light">
+            <div class="modal-header">
+                <h5 class="modal-title">Login</h5>
+                <button type="button" class="btn-close" #closebutton data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3 row">
+                    <label for="txtlgnemail" class="col-sm-4 col-form-label align-middle">Email : </label>
+                    <div class="col-sm-12">
+                      <input type="text" formControlName="emailaddr"  [class.is-invalid]="loginform.get('emailaddr')['invalid'] && loginform.get('emailaddr')['touched']" class="form-control border border-dark" id="txtlgnemail" value="" placeholder="Enter E-Mail">
+                      <div *ngIf="(loginform.get('emailaddr')['invalid'] && loginform.get('emailaddr')['touched']) || loginform.get('emailaddr')['dirty']">
+                        <small class="text-danger" *ngIf="loginform.get('emailaddr').errors && loginform.get('emailaddr').errors['required']">please enter email address.</small>
+                        <small class="text-danger" *ngIf="loginform.get('emailaddr').errors && loginform.get('emailaddr').errors['email']">please enter valid email address to login.</small>
+                       </div>
+                    </div>
+                  </div>
+                  <div class="mb-3 row">
+                    <label for="txtlgnpwd" class="col-sm-4 col-form-label align-middle">Password : </label>
+                    <div class="col-sm-12">
+                      <input type="password"  formControlName="pwd"  [class.is-invalid]="loginform.get('pwd')['invalid'] && loginform.get('pwd')['touched']"  class="form-control border border-dark" id="txtlgnpwd" placeholder="Enter Password">
+                      <div *ngIf="(loginform.get('pwd')['invalid'] && loginform.get('pwd')['touched']) || loginform.get('pwd')['dirty']">
+                        <small class="text-danger" *ngIf="loginform.get('pwd').errors && loginform.get('pwd').errors['required']">please enter password.</small>
+                       </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+        </div>
+    </form>
+</div>

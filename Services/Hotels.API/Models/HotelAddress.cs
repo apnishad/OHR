@@ -9,5 +9,6 @@ namespace Hotels.API.Models
         public string HotelId{get;set;}
 
         public HotelsInfo Hotel{get;set;}
+        public ICollection<Rooms> Rooms{get;set;}
     }
 }

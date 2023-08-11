@@ -13,6 +13,8 @@ namespace UserIdentity.API.ViewModels.Mappings
             CreateMap<string, byte[]>().ConvertUsing<StringToByteArrayTypeConverter>();
             CreateMap<ImageViewModel,Images>();
             CreateMap<Images,ImageViewModel>();
+            CreateMap<Rooms,RoomsViewModel>();
+            CreateMap<RoomsViewModel,Rooms>();
         }
     }
 }

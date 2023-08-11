@@ -168,6 +168,9 @@ namespace Hotels.API.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<int>("RoomLocId")
+                        .HasColumnType("int");
+
                     b.Property<string>("RoomTypeId")
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
@@ -176,6 +179,8 @@ namespace Hotels.API.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("HotelId");
+
+                    b.HasIndex("RoomLocId");
 
                     b.HasIndex("RoomTypeId");
 
@@ -261,6 +266,12 @@ namespace Hotels.API.Migrations
                         .HasForeignKey("HotelId")
                         .HasConstraintName("FK_Rooms_Hotels");
 
+                    b.HasOne("Hotels.API.Models.HotelAddress", "RoomLoc")
+                        .WithMany("Rooms")
+                        .HasForeignKey("RoomLocId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Hotels.API.Models.RoomTypes", "RoomType")
                         .WithMany("Rooms")
                         .HasForeignKey("RoomTypeId")
@@ -268,12 +279,19 @@ namespace Hotels.API.Migrations
 
                     b.Navigation("Hotel");
 
+                    b.Navigation("RoomLoc");
+
                     b.Navigation("RoomType");
                 });
 
             modelBuilder.Entity("Hotels.API.Models.Facilities", b =>
                 {
                     b.Navigation("RoomFacilitiesRelationships");
+                });
+
+            modelBuilder.Entity("Hotels.API.Models.HotelAddress", b =>
+                {
+                    b.Navigation("Rooms");
                 });
 
             modelBuilder.Entity("Hotels.API.Models.HotelsInfo", b =>

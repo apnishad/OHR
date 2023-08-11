@@ -75,6 +75,7 @@ namespace Hotels.API.Models
 
                 entity.HasOne(ho=>ho.Hotel).WithMany(wm=>wm.Rooms).HasForeignKey(fk=>fk.HotelId).HasConstraintName("FK_Rooms_Hotels");
                 entity.HasOne(ho=>ho.RoomType).WithMany(wm=>wm.Rooms).HasForeignKey(fk=>fk.RoomTypeId).OnDelete(DeleteBehavior.Cascade);
+                entity.HasOne(ho=>ho.RoomLoc).WithMany(wm=>wm.Rooms).HasForeignKey(fk=>fk.RoomLocId).OnDelete(DeleteBehavior.Cascade);
             });
 
             modelBuilder.Entity<RoomTypes>(entity=>{

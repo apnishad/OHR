@@ -1,3 +1,4 @@
+import { HotelAddressViewModel } from "./HotelAddressViewModel";
 import { ImageViewModel } from "./ImageViewModel";
 import { RoomTypesViewModel } from "./RoomTypesViewModel";
 
@@ -10,6 +11,8 @@ export class RoomsViewModel
     price:number;
     description:string;
     roomTypeId:string;
+    roomLocId:string;
     roomType:RoomTypesViewModel;
+    roomLoc:HotelAddressViewModel;
     images:ImageViewModel[];
 }

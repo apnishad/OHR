@@ -1,0 +1,97 @@
+<div class="modal-dialog model-sm modal-dialog-centered">
+    <form [formGroup]="registerform" (ngSubmit)="OnSubmit(registerform)">
+        <div class="modal-content opacity-75 bg-light">
+            <div class="modal-header">
+                <h5 class="modal-title">Customer Registration</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="txtfname">First Name : </label>
+                        <input type="text" formControlName="fname" [class.is-invalid]="registerform.get('fname')['invalid'] && registerform.get('fname')['touched']" class="form-control form-control-lg border border-dark" id="txtfname"  placeholder="Enter First Name....">
+                        <div *ngIf="(registerform.get('fname')['invalid'] && registerform.get('fname')['touched']) || registerform.get('fname')['dirty']">
+                            <small class="text-danger" *ngIf="registerform.get('fname').errors && registerform.get('fname').errors['required']">please enter first name.</small>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="txtlname">Last Name : </label>
+                        <input type="text" formControlName="lname" [class.is-invalid]="registerform.get('lname')['invalid'] && registerform.get('lname')['touched']" class="form-control form-control-lg border border-dark" id="txtlname" placeholder="Enter Last Name......">
+                        <div *ngIf="(registerform.get('lname')['invalid'] && registerform.get('lname')['touched']) || registerform.get('lname')['dirty']">
+                            <small class="text-danger" *ngIf="registerform.get('lname').errors && registerform.get('lname').errors['required']">please enter last name.</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="txtloc">Locations : </label>
+                        <input type="text" formControlName="loc" [class.is-invalid]="registerform.get('loc')['invalid'] && registerform.get('loc')['touched']" class="form-control border border-dark" id="txtloc" placeholder="Enter Locations">
+                        <div *ngIf="(registerform.get('loc')['invalid'] && registerform.get('loc')['touched']) || registerform.get('loc')['dirty']">
+                            <small class="text-danger" *ngIf="registerform.get('loc').errors && registerform.get('loc').errors['required']">please enter location.</small>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="txtgender">Gender : </label>
+                        <div class="form-group pt-3">
+                            <div class="form-check form-check-inline">
+                                <input type="radio" [class.is-invalid]="registerform.get('gender')['invalid'] && registerform.get('gender')['touched']" value="Male"  formControlName="gender" class="form-check-input border border-dark" id="txtmgender">
+                                <label for="txtmgender" class="form-check-label">Male.</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" [class.is-invalid]="registerform.get('gender')['invalid'] && registerform.get('gender')['touched']" value="Female"  formControlName="gender" class="form-check-input border border-dark" id="txtfgender">
+                                <label for="txtfgender" class="form-check-label">Female.</label>
+                            </div>
+                            <div *ngIf="(registerform.get('gender')['invalid'] && registerform.get('gender')['touched']) || registerform.get('gender')['dirty']">
+                                <small class="text-danger" *ngIf="registerform.get('gender').errors && registerform.get('gender').errors['required']">please select gender.</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label for="txtemail">E-Mail Id : </label>
+                        <input type="text" formControlName="emailaddr" [class.is-invalid]="registerform.get('emailaddr')['invalid'] && registerform.get('emailaddr')['touched']"  class="form-control border border-dark" id="txtemail" placeholder="Enter E-Mail">
+                        <div *ngIf="(registerform.get('emailaddr')['invalid'] && registerform.get('emailaddr')['touched']) || registerform.get('emailaddr')['dirty']">
+                            <small class="text-danger" *ngIf="registerform.get('emailaddr').errors && registerform.get('emailaddr').errors['required']">please enter email id.</small> 
+                            <small class="text-danger" *ngIf="registerform.get('emailaddr').errors && registerform.get('emailaddr').errors['email']">Email must be valid email address.</small> 
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="txtpwd">Password : </label>
+                        <input type="password" formControlName="pwd" [class.is-invalid]="registerform.get('pwd')['invalid'] && registerform.get('pwd')['touched']" class="form-control border border-dark" id="txtpwd" placeholder="Enter Password">
+                        <div *ngIf="(registerform.get('pwd')['invalid'] && registerform.get('pwd')['touched']) || registerform.get('pwd')['dirty']">
+                            <small class="text-danger" *ngIf="registerform.get('pwd').errors && registerform.get('pwd').errors['required']">please enter password.</small> 
+                            <small class="text-danger" *ngIf="registerform.get('pwd').errors && registerform.get('pwd').errors['minlength']">password should be atleast 6 characters.</small> 
+                           </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="txtcpwd">Confirm Password : </label>
+                        <input type="password" formControlName="cpwd"  [class.is-invalid]="registerform.get('cpwd')['invalid'] && registerform.get('cpwd')['touched']" class="form-control border border-dark" id="txtcpwd" placeholder="Enter Confirm Password">
+                        <div *ngIf="(registerform.get('cpwd')['invalid'] && registerform.get('cpwd')['touched']) || registerform.get('cpwd')['dirty']">
+                            <small class="text-danger" *ngIf="registerform.get('cpwd').errors && registerform.get('cpwd').errors['required']">please enter password.</small> 
+                            <small class="text-danger" *ngIf="registerform.get('cpwd').errors && registerform.get('cpwd').errors['mustMatch']">password and confirm password are not matching.</small>
+                           </div> 
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group px-5 col-md-12">
+                        <label class="form-check-label text-muted">
+                          <input type="checkbox" [ngClass]="{'is-invalid':submitted && regF['acceptTerms'].errors}" formControlName="acceptTerms"  class="form-check-input border border-dark"> I agree to all Terms & Conditions 
+                        </label>
+                        <div *ngIf="(registerform.get('acceptTerms')['invalid'] && registerform.get('acceptTerms')['touched']) || registerform.get('acceptTerms')['dirty']">
+                          <small class="text-danger" *ngIf="registerform.get('acceptTerms').errors && registerform.get('acceptTerms').errors['required']">please select agreed to terms & conditions.</small>
+                         </div>
+                      </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button class="btn btn-primary" type="submit" [disabled]="!registerform.valid" >Register</button>
+            </div>
+        </div>
+    </form>
+</div>

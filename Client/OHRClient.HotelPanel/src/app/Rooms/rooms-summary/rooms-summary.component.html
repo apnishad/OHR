@@ -8,6 +8,7 @@
         <th>Available</th>
         <th>Maximum Guest</th>
         <th>Room Type</th>
+        <th>Room Location</th>
         <th>Price </th>
         <th>Actions</th>
       </tr>
@@ -20,6 +21,7 @@
         <td *ngIf="!rm.available"> No</td>
         <td>{{rm.maximumGuests}}</td>
         <td> {{rm.roomType.name}} </td>
+        <td> {{rm.roomLoc.location}} </td>
         <td> {{rm.price}} </td>
         <td><button class="btn btn-primary m-1" (click)="OnEdit(rm.id)">Edit</button>
         <a class="btn btn-primary m-1" (click)="OnView(rm.id)">View</a>

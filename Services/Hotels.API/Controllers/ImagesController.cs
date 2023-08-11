@@ -103,7 +103,9 @@ namespace Hotels.API.Controllers
             }
             else
             {
-                image.Id = (int.Parse(_context.Images.Max(im=>im.Id)) + 1).ToString();
+                
+                image.Id = (_context.Images.Max(im=>Convert.ToInt32(im.Id)) + 1).ToString();
+                Console.WriteLine(_context.Images.Max(im=>Convert.ToInt32(im.Id)));
             }
             _context.Images.Add(image);
             try{

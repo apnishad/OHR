@@ -3,18 +3,6 @@
     <button type="button" class="btn-close" aria-label="Close" (click)="modalRef.close()"></button>
 </div>
 <div class="modal-body">
- <!-- <ul class="nav nav-tabs mb-3" id="ex1" role="tablist">
-    <li class="nav-item" role="presentation">
-      <button type="button" class="nav-link" id="ex1-tab-1" data-mdb-toggle="tab" data-mdb-target="#ex1-tabs-1" role="tab" aria-controls="ex1-tabs-1" aria-selected="true">Room Details</button>
-    </li>
-    <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="ex1-tab-2" data-mdb-toggle="tab" data-mdb-target="#ex1-tabs-2" role="tab" aria-controls="ex1-tabs-2" aria-selected="false">Room Image Gallery</button>
-    </li>
-    <li class="nav-item" role="presentation">
-        <button class="nav-link" id="ex1-tab-3" data-mdb-toggle="tab" data-mdb-target="#ex1-tabs-3" role="tab" aria-controls="ex1-tabs-3" aria-selected="false">Room Facilities</button>
-    </li>
-  </ul>-->
-  <!--<div class="tab-pane fade show active" id="ex1-tabs-1" role="tabpanel" aria-labelledby="ex1-tab-1">-->
     <mdb-tabs [pills]="true">
       <mdb-tab title="Room Details">
         <h2>Room Details</h2>
@@ -63,8 +51,17 @@
           </div>            
           <div class="form-group row">
             <label for="txtdescription" class="col-sm-2 col-form-label">Description : </label>
-            <div class="col-sm-10">
+            <div class="col-sm-4">
               <textarea type="text" [readonly]="status==2" formControlName="description" class="form-control form-control-lg" id="txtdescription" rows="4" column="20" placeholder="Description"></textarea>
+            </div>
+            <label for="txtroomLoc"  class="col-sm-2 col-form-label">Room Location : </label>
+            <div class="col-sm-4">
+              <select  [class.is-invalid]="roomForm.get('roomLocId')['invalid'] && roomForm.get('roomLocId')['touched']"  formControlName="roomLocId" class="form-control form-control-lg" id="txtroomLoc" >
+                <option *ngFor="let rmloc of roomLocationList" [value]="rmloc.rmLocId">{{rmloc.rmLocationName}}</option>
+              </select>
+              <div *ngIf="(roomForm.get('roomLocId')['invalid'] && roomForm.get('roomLocId')['touched']) || roomForm.get('roomLocId')['dirty']">
+                <small class="text-danger" *ngIf="roomForm.get('roomLocId').errors && roomForm.get('roomLocId').errors['required']">please select room location.</small>
+              </div>
             </div>
           </div>
         </form>
@@ -84,7 +81,7 @@
           </div>
         </form>
         <div class="carousel-inner rounded-5 shadow-4-strong w-50 h-40 mx-auto">
-          <mdb-carousel [controls]="true" [indicators]="true" >
+          <mdb-carousel indicators="true">
             <mdb-carousel-item *ngFor="let img of roomvm.images">
               <img [src]='img.imgData' alt="" class="w-100 h-100">
             </mdb-carousel-item>

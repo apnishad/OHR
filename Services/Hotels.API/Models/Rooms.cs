@@ -14,10 +14,12 @@ namespace Hotels.API.Models
         public int Number{get;set;}
         public decimal Price{get;set;}
         public string RoomTypeId{get;set;}
+        public int RoomLocId{get;set;}
         public string HotelId{get;set;}
 
         public HotelsInfo Hotel{get;set;}
         public RoomTypes RoomType{get;set;}
+        public HotelAddress RoomLoc{get;set;}
         public ICollection<Images>  Images{get;set;}
         public ICollection<RoomFacilitiesRelationships> RoomFacilitiesRelationships{get;set;} 
 

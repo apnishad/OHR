@@ -1,4 +1,5 @@
 using System.Security.Claims;
+using AutoMapper;
 using Hotels.API.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -11,16 +12,20 @@ namespace Hotels.API.Controllers
     public class RoomsController:ControllerBase
     {
         private readonly HotelsContext _context;
+        private readonly IMapper _mapper;
 
-        public RoomsController(HotelsContext context)
+        public RoomsController(HotelsContext context,IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         [HttpGet]
-        public IEnumerable<Rooms> GetRooms()
+        [RequestSizeLimit(104857600)]
+        public IEnumerable<RoomsViewModel> GetRooms()
         {
-            return _context.Rooms.Include(r=>r.RoomType);
+            var rData =_mapper.Map<IEnumerable<RoomsViewModel>>(_context.Rooms.Include(r=>r.RoomType).Include(r=>r.RoomLoc).Include(im=>im.Images).AsNoTracking().ToList());
+            return rData;
         }
 
         [HttpGet("{id}")]
@@ -30,7 +35,9 @@ namespace Hotels.API.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var room = await _context.Rooms.Include(r=>r.RoomType).Include(r=>r.Images).SingleOrDefaultAsync(r=>r.Id==id);
+            var rm = _context.Rooms.Include(r=>r.RoomType).Include(r=>r.Images).Include(r=>r.RoomLoc).AsNoTracking().ToList();
+            IEnumerable<RoomsViewModel> rooms = _mapper.Map<IEnumerable<RoomsViewModel>>(rm);
+            RoomsViewModel room = rooms.SingleOrDefault(r=>r.Id==id);
             if(room == null)
             {
                 return NotFound();
